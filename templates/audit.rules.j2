@@ -1,0 +1,13 @@
+# Default rules
+{% if default_rules is defined and default_rules %}
+  {% for rule in costum_rules %}
+{{rule}}
+  {% endfor %}
+{% endif %}
+
+# Costum rules
+{% if costum_rules is defined and costum_rules %}
+  {% for rule in costum_rules %}
+{{rule}}
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,43 @@
+---
+# defaults file for auditd
+
+default_rules:
+ - "-D"
+ - "-b 8192"
+ - "-f 1"
+
+costum_rules:
+# Surveillance du fichier passwd
+ - "-w /etc/passwd -p wax -k passwdchanges -k security"
+
+# Surveillance du fichier passwd
+ - "-w /etc/shadow -p wax -k shadowchanges -k security"
+
+# Surveillance du dossier selinux
+ - "-w /etc/selinux/ -p wax -k selinuxchanges -k security"
+
+# Surveillance du fichier hosts
+ - "-w /etc/hosts -p wax -k hostschanges -k security"
+
+# Surveillance config dns
+ - "-w /etc/resolv.conf -p wax -k dnschanges -k security"
+
+# Surveillance config yum
+ - "-w /etc/yum.conf -p wax -k yumchanges -k security"
+
+# Surveillance sshd config
+ - "-w /etc/ssh/sshd_config -p wax -k sshchanges -k security"
+ - "-w /etc/ssh/ssh_config -p wax -k sshchanges -k security"
+
+# Surveilance config Audit
+ - "-w /etc/audit -p wxa -k auditchanges -k security"
+ - "-w /var/log/audit -p wxa -k auditchanges -k security"
+# Surveilance fihcier group
+ - "-w /etc/group -p wxa -k groupchanges -k security"
+
+# Surveillance pam.d
+ - "-w /etc/pam.d -p wxa -k pamchanges -k security"
+
+# Suppression par un utilisateur non confiance
+ - "-a always,exit -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k baduid -k security"
+

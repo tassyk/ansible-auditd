@@ -1,0 +1,13 @@
+---
+# handlers file for auditd
+
+- name: start auditd
+  systemd:
+    name: auditd
+    state: started
+    enabled: yes
+
+- name: restart auditd
+  systemd:
+    name:  auditd
+    state: started

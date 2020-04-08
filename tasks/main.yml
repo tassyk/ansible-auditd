@@ -1,0 +1,32 @@
+---
+# tasks file for auditd
+- name: upgrade all packages, excluding kernel & some related packages
+  yum:
+    name: '*'
+    state: latest
+    #exclude: kernel*,foo*
+  tags: update_all
+
+# Handler showing how to clean yum metadata cache
+- name: yum-clean-metadata
+  command: yum clean metadata
+  args:
+    warn: no
+
+- name: install auditd
+  yum:
+    name:
+     - audit 
+     - audit-libs
+    state: present
+    #enablerepo: "base"
+  notify: start auditd
+  tags: install
+
+# Push rules config file
+- template:
+    src: audit.rules.j2
+    dest: /etc/audit/audit.rules
+    backup: yes
+  notify: restart auditd
+  tags: config,perms,rules
