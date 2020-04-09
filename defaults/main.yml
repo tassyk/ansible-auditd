@@ -1,5 +1,6 @@
 ---
 # defaults file for auditd
+update_pkg: yes
 
 rule_name: costum
 

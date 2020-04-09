@@ -16,6 +16,7 @@ Role Variables
 
 Les variables par défaut sont renseignés dans default/main.yml :
 ```
+- update_pkg: pour mettre à jour ou non tous les paquets du system
 - rule_name: nom du fichier des règles (par defaut, costum)
 - custom_rules: règles personnalisées
 ```
