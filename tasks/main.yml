@@ -25,8 +25,8 @@
 
 # Push rules config file
 - template:
-    src: audit.rules.j2
-    dest: /etc/audit/audit.rules
-    backup: yes
+    src: costums.rules.j2
+    dest: /etc/audit/rules.d/costums.rules
+    #backup: yes
   notify: restart auditd
   tags: config,perms,rules

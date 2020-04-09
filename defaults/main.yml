@@ -1,11 +1,6 @@
 ---
 # defaults file for auditd
 
-default_rules:
- - "-D"
- - "-b 8192"
- - "-f 1"
-
 costum_rules:
 # Surveillance du fichier passwd
  - "-w /etc/passwd -p wax -k passwdchanges -k security"
