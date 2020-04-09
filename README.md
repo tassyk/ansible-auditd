@@ -16,7 +16,6 @@ Role Variables
 
 Les variables par défaut sont renseignés dans default/main.yml :
 ```
-- default_rules: règles par défaut
 - custom_rules: règles personnalisées
 ```
 Dependencies
