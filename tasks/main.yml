@@ -25,7 +25,7 @@
 
 # Push rules config file
 - template:
-    src: costums.rules.j2
+    src: costum.rules.j2
     dest: /etc/audit/rules.d/costums.rules
     #backup: yes
   notify: restart auditd
