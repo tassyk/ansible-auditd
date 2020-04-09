@@ -1,6 +1,8 @@
 ---
 # defaults file for auditd
 
+rule_name: costum
+
 costum_rules:
 # Surveillance du fichier passwd
  - "-w /etc/passwd -p wax -k passwdchanges -k security"
